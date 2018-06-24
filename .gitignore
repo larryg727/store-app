@@ -22,3 +22,5 @@ yarn-error.log*
 
 /.vscode
 settings.json
+
+.eslintrc.json

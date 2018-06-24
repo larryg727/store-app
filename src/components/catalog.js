@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Product from "../components/product";
+import "../css/products.css";
 
-class Body extends Component {
+class Catalog extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,7 +22,7 @@ class Body extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="productContainer">
         {Object.keys(this.state.products).map(key => (
           <Product key={key} details={this.state.products[key]} />
         ))}
@@ -30,4 +31,4 @@ class Body extends Component {
   }
 }
 
-export default Body;
+export default Catalog;
