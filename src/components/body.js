@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import Person from "../components/testperson";
+import Product from "../components/product";
 
 class Body extends Component {
   constructor() {
     super();
     this.state = {
-      people: []
+      products: []
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/test")
+    fetch("http://localhost:5000/products")
       .then(results => {
         return results.json();
       })
-      .then(people => {
-        this.setState({ people: people });
-        console.log("state", this.state.people);
+      .then(products => {
+        this.setState({ products: products });
+        console.log("state", this.state.products);
       });
   }
   render() {
     return (
       <div>
-        {Object.keys(this.state.people).map(key => (
-          <Person key={key} details={this.state.people[key]} />
+        {Object.keys(this.state.products).map(key => (
+          <Product key={key} details={this.state.products[key]} />
         ))}
       </div>
     );
