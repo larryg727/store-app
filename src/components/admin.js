@@ -12,6 +12,10 @@ class Admin extends Component {
     showProductFormClick = () => {
         this.setState({ showAddForm: true });
     };
+    
+    hideProductFormClick = () => {
+        this.setState({ showAddForm: false });
+    }
 
     addProduct = product => {
         const formData = new FormData();
@@ -54,7 +58,7 @@ class Admin extends Component {
                 <div className="productContainer">
                     {Object.keys(this.state.products).map(key => <Product key={key} details={this.state.products[key]} />)}
                 </div>
-                {this.state.showAddForm ? <ProductFrom addProduct={this.addProduct} /> : null}
+                {this.state.showAddForm ? <ProductFrom addProduct={this.addProduct} hideForm={this.hideProductFormClick} /> : null}
             </div>
         );
     }

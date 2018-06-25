@@ -18,12 +18,17 @@ class ProductForm extends Component {
 
     render() {
         return (
-            <form className="addProduct" onSubmit={this.createProduct}>
-                <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
-                <input name="description" ref={this.descriptionRef} type="text" placeholder="Description" />
-                <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
-                <button type="submit">Add Product</button>
-            </form>
+            <div className="modalBackground" onClick={this.props.hideForm}>
+                <form className="addProduct" onSubmit={this.createProduct}>
+                    <div className="modalCloseBtn" onClick={this.props.hideForm}>
+                        X
+                    </div>
+                    <input name="name" ref={this.nameRef} type="text" placeholder="Name" />
+                    <input name="description" ref={this.descriptionRef} type="text" placeholder="Description" />
+                    <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
+                    <button type="submit">Add Product</button>
+                </form>
+            </div>
         );
     }
 }
