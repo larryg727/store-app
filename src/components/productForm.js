@@ -18,7 +18,7 @@ class ProductForm extends Component {
 
     render() {
         return (
-            <div className="modalBackground" onClick={this.props.hideForm}>
+            <div className="modalBackground">
                 <form className="addProduct" onSubmit={this.createProduct}>
                     <div className="modalCloseBtn" onClick={this.props.hideForm}>
                         X
