@@ -15,6 +15,9 @@ class Navbar extends Component {
                     <a href="/products" className="nav-btn hvr-underline-from-center">
                         Catalog
                     </a>
+                    <a href="/admin" className="nav-btn hvr-underline-from-center">
+                        Admin
+                    </a>
                 </div>
             </div>
         );

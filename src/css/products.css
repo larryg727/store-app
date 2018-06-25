@@ -1,14 +1,14 @@
-#productContainer {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  align-items: stretch;
+.productContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
 }
 
 .product {
-  width: 200px;
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
