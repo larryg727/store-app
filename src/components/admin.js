@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import apiUrl from '../config';
+import config from '../config';
 import Product from './product';
 import ProductFrom from './productForm';
 
@@ -12,17 +12,17 @@ class Admin extends Component {
     showProductFormClick = () => {
         this.setState({ showAddForm: true });
     };
-    
+
     hideProductFormClick = () => {
         this.setState({ showAddForm: false });
-    }
+    };
 
     addProduct = product => {
         const formData = new FormData();
         formData.append('name', product.name);
         formData.append('description', product.description);
         formData.append('price', product.price);
-        fetch(apiUrl + '/product/create', {
+        fetch(config.apiUrl + '/api/add/product', {
             method: 'POST',
             body: formData
         })
@@ -41,13 +41,14 @@ class Admin extends Component {
     };
 
     componentDidMount() {
-        fetch(apiUrl + '/products')
+        fetch(config.apiUrl + '/api/products')
             .then(results => {
                 return results.json();
             })
-            .then(products => {
-                this.setState({ products: products });
-                console.log('state', this.state.products);
+            .then(response => {
+                console.log(response);
+                this.setState({ products: response });
+                console.log('state', this.state.response);
             });
     }
     render() {
@@ -58,7 +59,9 @@ class Admin extends Component {
                 <div className="productContainer">
                     {Object.keys(this.state.products).map(key => <Product key={key} details={this.state.products[key]} />)}
                 </div>
-                {this.state.showAddForm ? <ProductFrom addProduct={this.addProduct} hideForm={this.hideProductFormClick} /> : null}
+                {this.state.showAddForm ? (
+                    <ProductFrom addProduct={this.addProduct} hideForm={this.hideProductFormClick} />
+                ) : null}
             </div>
         );
     }

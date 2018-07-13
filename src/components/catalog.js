@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Product from '../components/product';
-import apiUrl from '../config';
+import config from '../config';
 import '../css/products.css';
 
 class Catalog extends Component {
@@ -9,7 +9,7 @@ class Catalog extends Component {
     };
 
     componentDidMount() {
-        fetch(apiUrl + '/products')
+        fetch(config.apiUrl + '/api/products')
             .then(results => {
                 return results.json();
             })
