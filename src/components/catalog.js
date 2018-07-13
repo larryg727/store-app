@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Product from '../components/product';
 import config from '../config';
-import '../css/products.css';
 
 class Catalog extends Component {
     state = {
