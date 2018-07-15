@@ -1,15 +1,9 @@
-:root {
-  --primary-font-color: #464646;
-  --primary-color: #84d8ff;
-  --secondary-color: #ecf2ff; }
-
-body,
-.appContainer {
-  color: var(--primary-font-color, #464646);
+body, .appContainer {
+  color: #464646;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: var(--secondary-color, #afafaf); }
+  background-color: #ecf2ff; }
 
 .contentContainer {
   margin: 100px auto;
@@ -32,7 +26,7 @@ body,
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background-color: var(--primary-color, #dfdfdfce); }
+  background-color: #84d8ff; }
 
 #navLinksContainer {
   width: 50%;
@@ -89,6 +83,17 @@ body,
   left: 0;
   right: 0; }
 
+.dropdown > ul {
+  position: absolute;
+  top: 45px;
+  list-style: none;
+  padding-left: 15px;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: -2px 4px 8px #4b4b4b; }
+
 .productContainer {
   display: flex;
   flex-flow: row wrap;
@@ -142,5 +147,3 @@ body,
   color: #ffffff;
   text-align: center;
   border-radius: 5px; }
-
-/*# sourceMappingURL=index.css.map */

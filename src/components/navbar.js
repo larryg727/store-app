@@ -1,6 +1,40 @@
 import React, { Component } from 'react';
+import Dropdown from './navDropdown';
 
 class Navbar extends Component {
+    state = {
+        categories: [],
+        showDropDown: false
+    }
+
+    dropDownClick = (e) => {
+        let change = !this.state.showDropDown
+        this.setState({
+            showDropDown: change
+        });
+    }
+
+    dropDownClass = () => {
+        console.log(this.state.showDropDown)
+        let dropClass = '';
+        if (this.state.showDropDown) {
+            dropClass = 'dropdown'
+        }else {
+            dropClass = 'dropdown hidden'
+        }
+        console.log(dropClass)
+        return dropClass
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.categories !== this.props.categories) {
+            this.setState({
+                categories: this.props.categories
+            });
+        }
+        
+    };
+
     render() {
         return (
             <div id="navbar">
@@ -11,9 +45,13 @@ class Navbar extends Component {
                     <a href="/" className="nav-btn hvr-underline-from-center">
                         Home
                     </a>
-                    <a href="/products" className="nav-btn hvr-underline-from-center">
-                        Catalog
-                    </a>
+                    <div className='dropdown'>
+                        <a onClick={this.dropDownClick} className='nav-btn hvr-underline-from-center'>Products</a>
+                       {this.state.showDropDown ? (
+                           <Dropdown categories={this.state.categories} />
+                       ) : null}
+                    </div>
+                    
                     <a href="/admin" className="nav-btn hvr-underline-from-center">
                         Admin
                     </a>

@@ -1,0 +1,13 @@
+body, .appContainer {
+    color: $primary-font-color;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: $background-color;
+}
+
+.contentContainer {
+    margin: 100px auto;
+    width: 90%;
+    max-width: 1400px;
+}

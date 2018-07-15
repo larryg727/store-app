@@ -7,7 +7,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    background-color: var(--primary-color, #dfdfdfce);
+    background-color: $primary-color;
 }
 
 #navLinksContainer {
@@ -69,4 +69,16 @@
 .hvr-underline-from-center:active:before {
     left: 0;
     right: 0;
+}
+
+.dropdown > ul {
+    position: absolute;
+    top: 45px;
+    list-style: none;
+    padding-left: 15px;
+    background-color: $light-color;
+    padding: 10px 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: $boxing-shadow;
 }

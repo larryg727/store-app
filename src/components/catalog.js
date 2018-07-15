@@ -12,9 +12,11 @@ class Catalog extends Component {
             .then(results => {
                 return results.json();
             })
-            .then(products => {
-                this.setState({ products: products });
-                console.log('state', this.state.products);
+            .then(response => {
+                this.setState({ 
+                    products: response.products
+                 });
+                console.log('products', this.state.products);
             })
             .catch(error => {
                 console.log('error', error)

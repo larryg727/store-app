@@ -1,4 +1,6 @@
-@import 'app';
-@import 'footer';
-@import 'navbar';
-@import 'products';
+@import 'assets/variables';
+
+@import 'components/app';
+@import 'components/footer';
+@import 'components/navbar';
+@import 'components/products';

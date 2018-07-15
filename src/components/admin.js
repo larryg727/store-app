@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from '../config';
 import Product from './product';
 import ProductFrom from './productForm';
+import CreateCategoryForm from './createCategoryForm';
 
 class Admin extends Component {
     state = {
@@ -31,6 +32,7 @@ class Admin extends Component {
             })
             .then(response => {
                 console.log('response', response);
+                //TODO: error handle based on response.result
                 const products = { ...this.state.products };
                 products[products.length] = product;
                 this.setState({
@@ -43,16 +45,39 @@ class Admin extends Component {
             });
     };
 
+    addCategory = category => {
+        const formData = new FormData();
+        formData.append('name', category)
+        
+        fetch(config.apiUrl + '/add/category', {
+            method: 'POST',
+            body: formData
+        })
+            .then(results => {
+                return results.json();
+            })
+            .then(response => {
+                console.log(response);
+                //TODO: error handle based on response.result
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };
+
     componentDidMount() {
         fetch(config.apiUrl + '/products')
             .then(results => {
                 return results.json();
             })
             .then(response => {
-                this.setState({ products: response });
+                console.log(response)
+                this.setState({ 
+                    products: response.products
+                 });
             })
             .catch(error => {
-                console.log('error', error)
+                console.log('error', error);
             });
     }
     render() {
@@ -60,6 +85,7 @@ class Admin extends Component {
             <div>
                 <h1>Welcome to the Admin Panel</h1>
                 <button onClick={this.showProductFormClick}>Add Product</button>
+                <CreateCategoryForm addCategory={this.addCategory} />
                 <div className="productContainer">
                     {Object.keys(this.state.products).map(key => <Product key={key} details={this.state.products[key]} />)}
                 </div>
