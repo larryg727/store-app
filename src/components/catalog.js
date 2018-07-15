@@ -8,13 +8,16 @@ class Catalog extends Component {
     };
 
     componentDidMount() {
-        fetch(config.apiUrl + '/api/products')
+        fetch(config.apiUrl + '/products')
             .then(results => {
                 return results.json();
             })
             .then(products => {
                 this.setState({ products: products });
                 console.log('state', this.state.products);
+            })
+            .catch(error => {
+                console.log('error', error)
             });
     }
     render() {

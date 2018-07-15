@@ -22,7 +22,7 @@ class Admin extends Component {
         formData.append('name', product.name);
         formData.append('description', product.description);
         formData.append('price', product.price);
-        fetch(config.apiUrl + '/api/add/product', {
+        fetch(config.apiUrl + '/add/product', {
             method: 'POST',
             body: formData
         })
@@ -37,18 +37,22 @@ class Admin extends Component {
                     products: products,
                     showAddForm: false
                 });
+            })
+            .catch(error => {
+                console.log('error', error)
             });
     };
 
     componentDidMount() {
-        fetch(config.apiUrl + '/api/products')
+        fetch(config.apiUrl + '/products')
             .then(results => {
                 return results.json();
             })
             .then(response => {
-                console.log(response);
                 this.setState({ products: response });
-                console.log('state', this.state.response);
+            })
+            .catch(error => {
+                console.log('error', error)
             });
     }
     render() {

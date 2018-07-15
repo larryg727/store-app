@@ -1,9 +1,9 @@
 const dev = {
-    apiUrl: 'http://localhost:5000'
+    apiUrl: 'http://localhost:5000/api'
 };
 
 const prod = {
-    apiUrl: 'https://somewhere.com'
+    apiUrl: '<BACKEND_URL>'
 };
 
 const config = process.env.REACT_APP_ENV === 'prod' ? prod : dev;
