@@ -7,6 +7,7 @@ import CreateCategoryForm from './createCategoryForm';
 class Admin extends Component {
     state = {
         products: [],
+        categories: [],
         showAddForm: false
     };
 
@@ -23,6 +24,7 @@ class Admin extends Component {
         formData.append('name', product.name);
         formData.append('description', product.description);
         formData.append('price', product.price);
+        formData.append('category', product.category);
         fetch(config.apiUrl + '/add/product', {
             method: 'POST',
             body: formData
@@ -73,7 +75,8 @@ class Admin extends Component {
             .then(response => {
                 console.log(response)
                 this.setState({ 
-                    products: response.products
+                    products: response.products,
+                    categories: response.categories
                  });
             })
             .catch(error => {
@@ -90,7 +93,7 @@ class Admin extends Component {
                     {Object.keys(this.state.products).map(key => <Product key={key} details={this.state.products[key]} />)}
                 </div>
                 {this.state.showAddForm ? (
-                    <ProductFrom addProduct={this.addProduct} hideForm={this.hideProductFormClick} />
+                    <ProductFrom addProduct={this.addProduct} hideForm={this.hideProductFormClick} categories={this.state.categories} />
                 ) : null}
             </div>
         );

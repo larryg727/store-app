@@ -14,18 +14,6 @@ class Navbar extends Component {
         });
     }
 
-    dropDownClass = () => {
-        console.log(this.state.showDropDown)
-        let dropClass = '';
-        if (this.state.showDropDown) {
-            dropClass = 'dropdown'
-        }else {
-            dropClass = 'dropdown hidden'
-        }
-        console.log(dropClass)
-        return dropClass
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.categories !== this.props.categories) {
             this.setState({
@@ -47,11 +35,13 @@ class Navbar extends Component {
                     </a>
                     <div className='dropdown'>
                         <a onClick={this.dropDownClick} className='nav-btn hvr-underline-from-center'>Products</a>
-                       {this.state.showDropDown ? (
-                           <Dropdown categories={this.state.categories} />
-                       ) : null}
+                        <ul className={this.state.showDropDown ? 'slideDown' : 'slideUp'}>
+                            <li><a href="/products/0" className='nav-btn'>All Products</a></li>
+                            {this.state.categories.map(category => (
+                                <Dropdown category={category} key={category.id} />
+                            ))}
+                        </ul>
                     </div>
-                    
                     <a href="/admin" className="nav-btn hvr-underline-from-center">
                         Admin
                     </a>

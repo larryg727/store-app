@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
 class Dropdown extends Component {
+
+    link = (category) => ('/products/' + category)
+    
     render() {
-        return (
-            <ul>
-                <li><a href="/products" className="nav-btn">
-                All Products
-                </a></li>
-                {this.props.categories.map(category => {
-                    return <li id={category.id}><a className='nav-btn'>{category.name}</a></li>
-                })}
-            </ul>
+        const { id, name } = this.props.category
+        return (    
+                <li id={id}><a className='nav-btn' href={this.link(id)}>{name}</a></li>
         )
     }
 }

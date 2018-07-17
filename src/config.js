@@ -6,6 +6,6 @@ const prod = {
     apiUrl: '<BACKEND_URL>'
 };
 
-const config = process.env.REACT_APP_ENV === 'prod' ? prod : dev;
+const config = process.env.REACT_APP_ENV === 'dev' ? dev : prod;
 
 export default config;

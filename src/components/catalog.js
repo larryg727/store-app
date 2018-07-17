@@ -8,7 +8,9 @@ class Catalog extends Component {
     };
 
     componentDidMount() {
-        fetch(config.apiUrl + '/products')
+        const category = this.props.match.params.category;
+        const catLink = category === '0' ? '' : '/' + category;
+        fetch(config.apiUrl + '/products' + catLink)
             .then(results => {
                 return results.json();
             })

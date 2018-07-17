@@ -8,6 +8,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     background-color: $primary-color;
+    color: $foreground-color;
 }
 
 #navLinksContainer {
@@ -27,7 +28,7 @@
 }
 
 .nav-btn:hover {
-    color: #0088f7;
+    color: $secondary-color;
 }
 
 #navLogoContainer {
@@ -55,7 +56,7 @@
     left: 51%;
     right: 51%;
     bottom: 0;
-    background: #0088f7;
+    background: $secondary-color;
     height: 4px;
     -webkit-transition-property: left, right;
     transition-property: left, right;
@@ -73,12 +74,26 @@
 
 .dropdown > ul {
     position: absolute;
-    top: 45px;
     list-style: none;
     padding-left: 15px;
-    background-color: $light-color;
+    background-color: $foreground-color;
+    color: $primary-font-color;
     padding: 10px 15px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: $boxing-shadow;
+    margin-left: -8px;
+    transition: transform .8s ease-in-out;
+    
+    top: 15px;
+    
+}
+
+.slideDown {
+    transform: translateY(30px);
+}
+
+.slideUp { 
+    z-index: -1000;
+    transform: translateY(-65px);
 }

@@ -3,7 +3,7 @@ body, .appContainer {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #ecf2ff; }
+  background-color: #edf6f8; }
 
 .contentContainer {
   margin: 100px auto;
@@ -26,7 +26,8 @@ body, .appContainer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  background-color: #84d8ff; }
+  background-color: #2c80a7;
+  color: #ffffff; }
 
 #navLinksContainer {
   width: 50%;
@@ -43,7 +44,7 @@ body, .appContainer {
   text-decoration: none; }
 
 .nav-btn:hover {
-  color: #0088f7; }
+  color: #2be605; }
 
 #navLogoContainer {
   width: 50%; }
@@ -68,7 +69,7 @@ body, .appContainer {
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #0088f7;
+  background: #2be605;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -85,14 +86,24 @@ body, .appContainer {
 
 .dropdown > ul {
   position: absolute;
-  top: 45px;
   list-style: none;
   padding-left: 15px;
   background-color: #ffffff;
+  color: #464646;
   padding: 10px 15px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: -2px 4px 8px #4b4b4b; }
+  box-shadow: -2px 3px 10px #4b4b4b88;
+  margin-left: -8px;
+  transition: transform .8s ease-in-out;
+  top: 15px; }
+
+.slideDown {
+  transform: translateY(30px); }
+
+.slideUp {
+  z-index: -1000;
+  transform: translateY(-65px); }
 
 .productContainer {
   display: flex;
