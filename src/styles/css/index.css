@@ -90,20 +90,30 @@ body, .appContainer {
   padding-left: 15px;
   background-color: #ffffff;
   color: #464646;
-  padding: 10px 15px;
+  padding: 0 15px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: -2px 3px 10px #4b4b4b88;
-  margin-left: -8px;
-  transition: transform .8s ease-in-out;
-  top: 15px; }
+  margin: 0 0 -8px 0;
+  transition: max-height .8s ease-in-out;
+  top: 60px;
+  overflow: hidden; }
 
 .slideDown {
-  transform: translateY(30px); }
+  max-height: 72px; }
 
 .slideUp {
   z-index: -1000;
-  transform: translateY(-65px); }
+  max-height: 0px; }
+
+.dropdown > ul > li {
+  transition: transform .8s ease-in-out; }
+
+.slideDown > li {
+  transform: translateY(0px); }
+
+.slideUp > li {
+  transform: translateY(-72px); }
 
 .productContainer {
   display: flex;
