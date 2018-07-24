@@ -83,31 +83,31 @@
     border-bottom-right-radius: 5px;
     box-shadow: $boxing-shadow;
     margin: 0 0 -8px 0;
-    transition: max-height .8s ease-in-out;
+    transition: max-height 0.8s ease-in-out;
     top: 60px;
     overflow: hidden;
 }
-
+// NEED TO SOLVE 2 B DYNAMIC-Height needs to equal heaigh of ul for animation to be smooth
 .slideDown {
     // transform: translateY(60px);
-    max-height: 72px;
+    max-height: calc(18px * 6);
 }
 
-.slideUp { 
+.slideUp {
     z-index: -1000;
     // transform: translateY(-45px);
     max-height: 0px;
 }
 
 .dropdown > ul > li {
-    transition: transform .8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
 }
 
 .slideDown > li {
-    transform: translateY(0px)
+    transform: translateY(0px);
 }
 
-// NEED TO SOLVE 2 B DYNAMIC-Height needs to equal heaigh of ul for animation to be smooth 
+// NEED TO SOLVE 2 B DYNAMIC-Height needs to equal heaigh of ul for animation to be smooth
 .slideUp > li {
-    transform: translateY(-72px)
+    transform: translateY(calc(-18px * 6));
 }
