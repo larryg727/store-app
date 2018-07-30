@@ -20,7 +20,7 @@ class ProductForm extends Component {
             details: this.detailsRef.current.value,
             price: this.priceRef.current.value,
             category: this.categoryRef.current.value,
-            subcategory: this.subcategoryRef.current.value
+            subcategory: this.state.categorySelected ? this.subcategoryRef.current.value : null
         };
         this.props.addProduct(product);
         e.currentTarget.reset();
@@ -47,7 +47,7 @@ class ProductForm extends Component {
                     <input name="price" ref={this.priceRef} type="text" placeholder="Price" />
                     <textarea name="details" ref={this.detailsRef} rows="5" colums="35" placeholder="Details" />
                     <select name="category" ref={this.categoryRef} onChange={this.selectedCategory}>
-                        <option value="">Select an option</option>
+                        <option value={null}>Select an option</option>
                         {this.props.categories.map(category => (
                             <option key={category.id} value={category.id}>
                                 {category.name}
@@ -56,7 +56,7 @@ class ProductForm extends Component {
                     </select>
                     {this.state.isCategorySelected ? (
                         <select name="subcategory" ref={this.subcategoryRef}>
-                            <option value="">Select an option</option>
+                            <option value={null}>Select an option</option>
                             {this.selectedSubcategories(this.state.categorySelected).map(subcategory => (
                                 <option key={subcategory.id} value={subcategory.id}>
                                     {subcategory.name}

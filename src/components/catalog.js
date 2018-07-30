@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Product from '../components/product';
-import config from '../config';
+import { URL_PRODUCTS } from '../constants/urls';
 
 class Catalog extends Component {
     state = {
@@ -10,26 +10,24 @@ class Catalog extends Component {
     componentDidMount() {
         const category = this.props.match.params.category;
         const catLink = category === '0' ? '' : '/' + category;
-        fetch(config.apiUrl + '/products' + catLink)
+        fetch(URL_PRODUCTS + catLink)
             .then(results => {
                 return results.json();
             })
             .then(response => {
-                this.setState({ 
+                this.setState({
                     products: response.products
-                 });
-                console.log('products', this.state.products);
+                });
+                console.table(this.state.products);
             })
             .catch(error => {
-                console.log('error', error)
+                console.log('error', error);
             });
     }
     render() {
         return (
             <div className="productContainer">
-                {Object.keys(this.state.products).map(key => (
-                    <Product key={key} details={this.state.products[key]} />
-                ))}
+                {Object.keys(this.state.products).map(key => <Product key={key} details={this.state.products[key]} />)}
             </div>
         );
     }
